@@ -1,0 +1,24 @@
+CREATE DATABASE wmsites
+
+use wmsites
+
+CREATE TABLE `estado` (
+  `Codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `Pais` varchar(150) NOT NULL,
+  `Nome` varchar(150) NOT NULL,
+  `Sigla` varchar(2) NOT NULL,
+  `Regiao` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`Codigo`)
+) 
+
+
+CREATE TABLE `cidade` (
+  `Codigo` int(11) NOT NULL AUTO_INCREMENT,
+  `Estado` int(11) NOT NULL,
+  `Nome` varchar(150) NOT NULL,
+  `Capital` tinyint(1) DEFAULT '0',
+  PRIMARY KEY (`Codigo`),
+  KEY `fk_estado` (`Codigo`),
+  CONSTRAINT `fk_estado` FOREIGN KEY (`Codigo`) REFERENCES `estado` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) 
+
