@@ -1,0 +1,73 @@
+﻿@model Site.Models.Cidade
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    if (ViewData["MensagemSucesso"] != null)
+    { 
+        <h4>
+            @ViewData["MensagemSucesso"]
+        </h4>
+    }
+    
+    if (ViewData["MensagemErro"] != null)
+    { 
+        <h4>
+            @ViewData["MensagemErro"]
+        </h4>
+    }    
+<table>
+        <tr style="display:none">
+            <td>
+                Codigo
+            </td>
+            <td>
+                @Html.DisplayFor(x => x.Codigo)
+                @if (Model != null)
+                {
+                    <input type="hidden" id = "Codigo" name ="Codigo" value = "@Model.Codigo" />
+                }
+
+            </td>
+        </tr>
+
+    <tr>
+        <td>
+            Nome 
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Nome)
+            @Html.ValidationMessageFor(x => x.Nome)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Capital 
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Capital)
+            @Html.ValidationMessageFor(x => x.Capital)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Estado 
+        </td>
+        <td>
+        @if (Model.TodosEstados != null)
+        {
+            @Html.DropDownListFor(x => x.Estado.Codigo, new SelectList(Model.TodosEstados, "Codigo", "Sigla"))
+        }
+        </td>
+    </tr>
+</table>
+
+<p>
+    <input type="submit" value="Salvar" />
+    
+</p>
+    @Html.ActionLink("Voltar para listagem de cidades", "ListarCidades")
+}

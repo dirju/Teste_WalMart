@@ -1,0 +1,85 @@
+﻿@model List<Site.Models.Cidade>
+
+@{
+    ViewBag.Title = "Cidade";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+
+<script type="text/javascript">
+    function deletarItem(trId) {
+        $(document.getElementById(trId)).remove();
+    }
+
+</script>
+
+<h2>Cidade</h2>
+<p>
+@Html.ActionLink("Novo", "CadastrarCidade")
+</p>
+
+<table id="idTable">
+    <tr>
+        <td style="display:none">
+            Codigo
+        </td>
+        <td>
+            Nome
+        </td>
+        <td>
+            Capital 
+        </td>
+        <td>
+            Estado  
+        </td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    
+    @if (Model == null)
+    { 
+        <tr>
+            <td colspan="6">
+                Não há Cidade cadastrada.
+            </td>
+        </tr>
+    }
+    else
+    {
+        foreach (Site.Models.Cidade cidade in Model)
+        { 
+        <tr id="@("idTr" + @cidade.Codigo)">
+            <td  style="display:none">
+                @cidade.Codigo
+            </td>
+            <td>
+                @cidade.Nome 
+            </td>
+            <td>
+                @if(cidade.Capital.ToString().ToUpper() == "TRUE")
+                {
+                    <label>Sim</label>
+                }
+                else
+                {
+                    <label>Não</label>
+                }
+
+            </td>
+            <td>
+                @cidade.Estado.Sigla 
+            </td>
+            <td> 
+                @Html.ActionLink("Editar", "EditarCidade", new { codigo = cidade.Codigo })
+            </td>
+            <td>
+                @Ajax.ActionLink("Delete", "DeletarCidade", new { codigo = cidade.Codigo }, new AjaxOptions() { HttpMethod = "delete", Confirm="Deseja realmente excluir a cidade?", OnComplete="deletarItem('idTr"+ cidade.Codigo +"')"})            
+            </td>
+
+        </tr>
+        
+        }
+        
+    }
+    
+</table>

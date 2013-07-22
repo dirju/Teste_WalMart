@@ -1,0 +1,5 @@
+C:\dev\Site\Site\Wservice\bin\Wservice.dll
+C:\dev\Site\Site\Wservice\bin\Wservice.pdb
+C:\dev\Site\Site\Wservice\obj\Debug\ResolveAssemblyReference.cache
+C:\dev\Site\Site\Wservice\obj\Debug\Wservice.dll
+C:\dev\Site\Site\Wservice\obj\Debug\Wservice.pdb

@@ -1,0 +1,80 @@
+﻿@model Site.Models.Estado
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    if (ViewData["MensagemSucesso"] != null)
+    { 
+        <h4>
+            @ViewData["MensagemSucesso"]
+        </h4>
+    }
+    
+    if (ViewData["MensagemErro"] != null)
+    { 
+        <h4>
+            @ViewData["MensagemErro"]
+        </h4>
+    }    
+<table>
+        <tr style="display:none">
+            <td>
+                Codigo
+            </td>
+            <td>
+                @Html.DisplayFor(x => x.Codigo)
+                @if (Model != null)
+                {
+                    <input type="hidden" id = "Codigo" name ="Codigo" value = "@Model.Codigo" />
+                }
+
+            </td>
+        </tr>
+
+    <tr>
+        <td>
+            Nome 
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Nome)
+            @Html.ValidationMessageFor(x => x.Nome)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Sigla 
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Sigla)
+            @Html.ValidationMessageFor(x => x.Sigla)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Pais 
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Pais)
+            @Html.ValidationMessageFor(x => x.Pais)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Regiao 
+        </td>
+        <td>
+            @Html.EditorFor(x => x.Regiao)
+            @Html.ValidationMessageFor(x => x.Regiao)
+        </td>
+    </tr>
+</table>
+
+<p>
+    <input type="submit" value="Salvar" />
+    
+</p>
+    @Html.ActionLink("Voltar para listagem de estados", "ListarEstados")
+}

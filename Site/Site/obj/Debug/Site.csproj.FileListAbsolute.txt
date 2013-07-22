@@ -1,0 +1,10 @@
+c:\dev\Site\Site\Site\bin\Site.dll
+c:\dev\Site\Site\Site\bin\Site.pdb
+c:\dev\Site\Site\Site\obj\Debug\ResolveAssemblyReference.cache
+c:\dev\Site\Site\Site\obj\Debug\Site.dll
+c:\dev\Site\Site\Site\obj\Debug\Site.pdb
+C:\dev\Site\Site\Site\bin\MySql.Data.dll
+C:\dev\Site\Site\Site\bin\System.Web.Abstractions.dll
+C:\dev\Site\Site\Site\bin\System.Web.Mvc.dll
+C:\dev\Site\Site\Site\bin\System.Web.Routing.dll
+C:\dev\Site\Site\Site\bin\System.Web.Mvc.xml
